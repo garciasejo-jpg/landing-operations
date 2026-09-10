@@ -8,6 +8,8 @@ import {
   Workflow,
   ArrowRight,
   Sparkles,
+  Banknote,
+  ShieldCheck,
 } from 'lucide-react';
 
 const SERVICES = [
@@ -166,8 +168,24 @@ export default function ServicesSection() {
           })}
         </div>
 
+        {}
+        {/* Aviso de Moneda y Facturación Local (Chile y Latam) */}
+        <div className="mt-8 max-w-3xl mx-auto p-4 rounded-2xl bg-slate-900/70 border border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-slate-400">
+          <div className="flex items-center gap-2.5 text-center sm:text-left">
+            <Banknote className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+            <span>
+              Valores referenciales expresados en <strong className="text-white">USD</strong>. Para empresas en Chile, facturación directa disponible en <strong className="text-emerald-400 font-bold">CLP</strong> al tipo de cambio observado más IVA.
+            </span>
+          </div>
+          <div className="flex items-center gap-1.5 text-slate-500 text-[11px] flex-shrink-0">
+            <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+            <span>Factura Electrónica B2B</span>
+          </div>
+        </div>
+
+        {}
         {/* Sección: Qué pasa después de la auditoría */}
-        <div id="process" className="mt-28 pt-16 border-t border-slate-800/80">
+        <div id="process" className="mt-24 pt-16 border-t border-slate-800/80">
           <div className="text-center max-w-3xl mx-auto mb-14">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-mono text-xs font-bold uppercase tracking-wider mb-3">
               <Workflow className="w-3.5 h-3.5" />

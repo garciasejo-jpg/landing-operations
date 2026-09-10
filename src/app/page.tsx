@@ -8,6 +8,7 @@ import ServicesSection from "@/components/ServicesSection";
 import FinalCTA from "@/components/FinalCTA";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://landing-operations-neon.vercel.app"),
   title: "José Miguel García | Ingeniero de Operaciones & Automatización con IA",
   description:
     "Ingeniero Industrial y Máster en Marketing Digital e IA Generativa. Desarrollo aplicaciones web a medida, extracción de guías con IA (Claude API) y trazabilidad QR para bodegas, distribución y talleres.",
@@ -40,7 +41,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "es_CL",
-    url: "https://josemiguelgarcia.engineer",
+    url: "https://landing-operations-neon.vercel.app",
     title: "José Miguel García | Ingeniero de Operaciones & Automatización con IA",
     description:
       "Elimina el papeleo manual y los cuellos de botella operativos en tu bodega o taller con software a medida, IA y trazabilidad QR.",
@@ -58,6 +59,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   name: "José Miguel García - Operations & AI Automation Engineer",
+  url: "https://landing-operations-neon.vercel.app",
   description:
     "Desarrollo de software operativo a medida, extracción de documentos con IA y sistemas de trazabilidad QR para distribución, almacenes y faenas.",
   founder: {
@@ -99,7 +101,7 @@ const jsonLd = {
 export default function Home() {
   return (
     <>
-      {/* Datos Estructurados Schema.org para Google */}
+      {/* Datos Estructurados Schema.org para indexación */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -110,7 +112,7 @@ export default function Home() {
         <Hero />
         <ProblemSection />
         <CaseStudy />
-        {/* Autoridad y credenciales ANTES de los precios para generar confianza */}
+        {/* Autoridad y credenciales ANTES de los precios para consolidar confianza */}
         <WhyMeSection />
         {/* Oferta de servicios, inversión y hoja de ruta */}
         <ServicesSection />
