@@ -3,14 +3,14 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import ProblemSection from "@/components/ProblemSection";
 import CaseStudy from "@/components/CaseStudy";
-import ServicesSection from "@/components/ServicesSection";
 import WhyMeSection from "@/components/WhyMeSection";
+import ServicesSection from "@/components/ServicesSection";
 import FinalCTA from "@/components/FinalCTA";
 
 export const metadata: Metadata = {
-  title: "José Miguel García | Operations & AI Automation Engineer",
+  title: "José Miguel García | Ingeniero de Operaciones & Automatización con IA",
   description:
-    "Ingeniero Industrial y Máster en IA Generativa. Desarrollo aplicaciones web a medida, extracción de guías y documentos con IA (Claude API) y sistemas de trazabilidad QR para almacenes y talleres.",
+    "Ingeniero Industrial y Máster en Marketing Digital e IA Generativa. Desarrollo aplicaciones web a medida, extracción de guías con IA (Claude API) y trazabilidad QR para bodegas, distribución y talleres.",
   keywords: [
     "José Miguel García",
     "Operations Engineer",
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     "Automatización Industrial",
     "Ingeniero Industrial",
     "Extracción guías de despacho IA",
-    "Trazabilidad QR almacén",
+    "Trazabilidad QR bodega",
     "Chilemat Quillota",
     "Desarrollo Next.js operaciones",
     "Supabase PostgreSQL logística"
@@ -41,14 +41,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_CL",
     url: "https://josemiguelgarcia.engineer",
-    title: "José Miguel García | Operations & AI Automation Engineer",
+    title: "José Miguel García | Ingeniero de Operaciones & Automatización con IA",
     description:
       "Elimina el papeleo manual y los cuellos de botella operativos en tu bodega o taller con software a medida, IA y trazabilidad QR.",
     siteName: "José Miguel García — Ops & AI Automation",
   },
   twitter: {
     card: "summary_large_image",
-    title: "José Miguel García | Operations & AI Automation Engineer",
+    title: "José Miguel García | Ingeniero de Operaciones & Automatización con IA",
     description:
       "Automatización de operaciones físicas, pipelines de extracción con IA y trazabilidad QR.",
   },
@@ -99,19 +99,21 @@ const jsonLd = {
 export default function Home() {
   return (
     <>
-      {/* Google Rich Snippets - Structured Data */}
+      {/* Datos Estructurados Schema.org para Google */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <main className="min-h-screen bg-zinc-950 text-zinc-100 selection:bg-emerald-500 selection:text-zinc-950">
+      <main className="min-h-screen bg-[#090D14] text-slate-100 selection:bg-emerald-500/30 selection:text-emerald-300">
         <Navbar />
         <Hero />
         <ProblemSection />
         <CaseStudy />
-        <ServicesSection />
+        {/* Autoridad y credenciales ANTES de los precios para generar confianza */}
         <WhyMeSection />
+        {/* Oferta de servicios, inversión y hoja de ruta */}
+        <ServicesSection />
         <FinalCTA />
       </main>
     </>

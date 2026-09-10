@@ -12,6 +12,10 @@ import {
   ShieldCheck,
   CheckCircle2,
   XCircle,
+  Clock,
+  Briefcase,
+  Layers,
+  Sparkles,
 } from 'lucide-react';
 
 interface FAQItem {
@@ -110,7 +114,7 @@ export default function WhyMeSection() {
                 Operations &amp; AI Automation Architect
               </p>
 
-              {/* Botones de Redes y Contacto (Con SVGs nativos para cero dependencias rotas) */}
+              {/* Botones de Redes y Contacto (SVGs Nativos) */}
               <div className="flex items-center gap-3 mt-5">
                 <a
                   href="https://www.linkedin.com/in/josé-garcía-lacruz"
@@ -157,11 +161,11 @@ export default function WhyMeSection() {
               )}
             </div>
 
-            {/* Narrativa de Ventaja Competitiva */}
+            {/* Narrativa de Ventaja Competitiva y Respaldo Concreto */}
             <div className="lg:col-span-8 space-y-5">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-mono text-xs font-bold uppercase tracking-wider">
                 <Award className="w-3.5 h-3.5" />
-                <span>Ventaja Competitiva</span>
+                <span>Ventaja Competitiva Comprobada</span>
               </div>
 
               <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight leading-snug">
@@ -169,12 +173,42 @@ export default function WhyMeSection() {
               </h2>
 
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-                A diferencia de un programador genérico que construye lo que dice un ticket sin conocer el polvo de una bodega o la urgencia de un despacho, mi formación como <strong className="text-emerald-400 font-semibold">Ingeniero Industrial</strong> junto con mi <strong className="text-white font-semibold">Máster en Marketing Digital e IA Generativa</strong> me permite unir visión de negocio, procesos operativos y tecnología de frontera. No solo implemento código: diseño herramientas de software que <strong className="text-white font-semibold">el personal de planta realmente adopta</strong>.
+                Con <strong className="text-white font-semibold">más de 10 años de trayectoria</strong> optimizando procesos operativos, logística interna y gestión de inventarios en el sector industrial, no desarrollo código aislado de la realidad de bodega. Mi formación dual como <strong className="text-emerald-400 font-semibold">Ingeniero Industrial</strong> y graduado de <strong className="text-white font-semibold">Máster en Marketing Digital e IA Generativa</strong> me permite diagnosticar exactamente dónde fuga dinero tu operación y construir herramientas de software de adopción inmediata para operarios en piso de planta.
               </p>
 
+              {/* Badges de Credenciales Concretas (Resuelve la observación del análisis) */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+                <div className="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800">
+                  <div className="flex items-center gap-2 text-emerald-400 text-xs font-mono font-bold mb-1">
+                    <Clock className="w-3.5 h-3.5" />
+                    <span>+10 AÑOS</span>
+                  </div>
+                  <p className="text-xs text-white font-semibold">Experiencia en Operaciones</p>
+                  <p className="text-[11px] text-slate-400 mt-0.5">Optimización de procesos y logística</p>
+                </div>
+
+                <div className="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800">
+                  <div className="flex items-center gap-2 text-cyan-400 text-xs font-mono font-bold mb-1">
+                    <Briefcase className="w-3.5 h-3.5" />
+                    <span>SECTOR B2B</span>
+                  </div>
+                  <p className="text-xs text-white font-semibold">Retail Industrial &amp; Faena</p>
+                  <p className="text-[11px] text-slate-400 mt-0.5">Ferreterías, patios y distribución</p>
+                </div>
+
+                <div className="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800">
+                  <div className="flex items-center gap-2 text-purple-400 text-xs font-mono font-bold mb-1">
+                    <Layers className="w-3.5 h-3.5" />
+                    <span>FORMACIÓN</span>
+                  </div>
+                  <p className="text-xs text-white font-semibold">Ingeniería + Máster IA</p>
+                  <p className="text-[11px] text-slate-400 mt-0.5">Criterio de negocio y algoritmos LLM</p>
+                </div>
+              </div>
+
               {/* Comparativa: Programador Genérico vs Ingeniero de Operaciones */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-3">
-                <div className="bg-slate-950/70 p-5 rounded-2xl border border-slate-800 text-xs text-slate-300 space-y-2.5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                <div className="bg-slate-950/70 p-4 sm:p-5 rounded-2xl border border-slate-800 text-xs text-slate-300 space-y-2">
                   <div className="font-mono text-rose-400 font-bold flex items-center gap-1.5 uppercase tracking-wider text-[11px]">
                     <XCircle className="w-4 h-4" />
                     <span>Programador Genérico</span>
@@ -183,20 +217,20 @@ export default function WhyMeSection() {
                     • Desconoce la dinámica de turnos, patios de carga y recepción física.
                   </p>
                   <p className="text-slate-400 leading-normal">
-                    • Diseña interfaces sobrecargadas que los operarios evitan usar.
+                    • Diseña interfaces complejas que los operarios evitan usar.
                   </p>
                   <p className="text-slate-400 leading-normal">
                     • Propone migraciones traumáticas de 18 meses que paralizan el negocio.
                   </p>
                 </div>
 
-                <div className="bg-slate-950/70 p-5 rounded-2xl border border-emerald-500/30 text-xs text-slate-300 space-y-2.5">
+                <div className="bg-slate-950/70 p-4 sm:p-5 rounded-2xl border border-emerald-500/30 text-xs text-slate-300 space-y-2">
                   <div className="font-mono text-emerald-400 font-bold flex items-center gap-1.5 uppercase tracking-wider text-[11px]">
                     <CheckCircle2 className="w-4 h-4" />
                     <span>Ingeniero Industrial + Ops IA</span>
                   </div>
                   <p className="text-slate-300 leading-normal">
-                    • Empatía con el ritmo del operario: interfaces de un tap para guantes o tablets.
+                    • Empatía de planta: interfaces de un tap para guantes y tablets.
                   </p>
                   <p className="text-slate-300 leading-normal">
                     • Extracción documental con IA validada contra catálogos reales de SKUs.
@@ -204,6 +238,23 @@ export default function WhyMeSection() {
                   <p className="text-slate-300 leading-normal">
                     • Retorno de inversión medible en semanas, conviviendo con tu ERP actual.
                   </p>
+                </div>
+              </div>
+
+              {/* Garantía de Viabilidad Técnica (Resuelve el punto de Garantías ausentes) */}
+              <div className="pt-2">
+                <div className="p-4 rounded-2xl bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border border-emerald-500/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
+                  <div className="flex items-center gap-2.5">
+                    <Sparkles className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                    <div>
+                      <span className="font-mono font-bold text-white uppercase text-[11px] block">
+                        Garantía de Honestidad Operativa:
+                      </span>
+                      <p className="text-slate-400 text-[11px]">
+                        Si en la auditoría inicial de 20 minutos determinamos que tu proceso no se beneficiará de IA o software a medida con un ROI positivo, te lo diré con total franqueza. Cero venta forzada.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -238,7 +289,7 @@ export default function WhyMeSection() {
                   <button
                     type="button"
                     onClick={() => toggleFaq(idx)}
-                    className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 font-semibold text-sm sm:text-base text-white hover:text-emerald-400 transition-colors focus:outline-none"
+                    className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 font-semibold text-sm sm:text-base text-white hover:text-emerald-400 transition-colors focus:outline-none cursor-pointer"
                     aria-expanded={isOpen}
                   >
                     <span>{faq.question}</span>

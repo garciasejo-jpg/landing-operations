@@ -19,6 +19,8 @@ import {
   Box,
   CheckCircle2,
   Terminal,
+  ArrowRight,
+  ShieldCheck,
 } from 'lucide-react';
 
 export default function CaseStudy() {
@@ -51,67 +53,66 @@ export default function CaseStudy() {
     <section id="case-study" className="py-24 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Encabezado de Autoridad */}
+        {/* Encabezado de Autoridad y Contexto Específico */}
         <div className="flex flex-col items-start mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-mono text-xs font-bold uppercase tracking-wider mb-4">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Caso de Éxito Validado en Producción</span>
+            <span>Caso de Estudio en Producción Real</span>
           </div>
 
           <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight max-w-4xl leading-tight">
             Chilemat Quillota: De Guías de Despacho en Papel a Inventario Cloud en &lt; 5 Segundos.
           </h2>
           <p className="mt-3 text-slate-400 text-sm sm:text-base font-mono">
-            [ Digitalización de patio y bodega ferretera: Extracción OCR con IA + Trazabilidad QR ]
+            [ Despliegue en Patio de Carga y Bodega Central · Extracción OCR con IA + Trazabilidad QR ]
           </p>
         </div>
 
-        {/* Grilla Principal: Contexto + Demo Interactiva */}
+        {/* Grilla Principal: Contexto del Cliente + Consola Interactiva */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
-          {}
-          {/* Columna Izquierda: Desafío, Solución y Cita */}
+          {/* Columna Izquierda: Desafío Real, Solución Desplegada y Testimonio */}
           <div className="lg:col-span-6 space-y-6">
             
-            {/* El Desafío */}
+            {/* El Desafío Concreto */}
             <div className="bg-slate-900/60 border border-slate-800/90 rounded-2xl p-6 sm:p-8">
               <div className="flex items-center justify-between mb-3">
                 <h3 className="text-lg font-bold text-white flex items-center gap-2.5">
                   <span className="w-3 h-3 rounded-full bg-rose-500 inline-block"></span>
-                  <span>El Desafío Operativo</span>
+                  <span>El Desafío Operativo en Terreno</span>
                 </h3>
                 <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">
-                  Retail Industrial & Ferretero
+                  Retail Ferretero &amp; Faena
                 </span>
               </div>
               <p className="text-slate-300 text-sm leading-relaxed">
-                Con cientos de guías de despacho físicas circulando semanalmente en la operación de <strong>Chilemat Quillota</strong>, el ingreso manual de herramientas, materiales de fijación y maquinaria generaba retrasos de hasta 48 horas en la actualización del stock disponible y frecuentes diferencias de inventario entre bodega y patio.
+                En la sucursal de <strong>Chilemat Quillota</strong>, con camiones descargando materiales de construcción y herramientas a diario, el personal de patio dependía de guías impresas. La transcripción manual tardaba entre 24 y 48 horas en reflejarse en el stock central, originando quiebres imprevistos y diferencias entre el inventario físico y contable.
               </p>
             </div>
 
-            {/* La Solución */}
+            {/* La Solución Desarrollada para Chilemat */}
             <div className="bg-slate-900/60 border border-slate-800/90 rounded-2xl p-6 sm:p-8">
               <h3 className="text-lg font-bold text-white flex items-center gap-2.5 mb-4">
                 <span className="w-3 h-3 rounded-full bg-cyan-400 inline-block"></span>
-                <span>La Arquitectura Implementada</span>
+                <span>La Solución Implementada en Sucursal</span>
               </h3>
 
               <div className="space-y-4">
                 
-                {/* Punto 1 */}
+                {/* Solución 1 */}
                 <div className="flex gap-3.5">
                   <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mt-0.5">
                     <Cpu className="w-4 h-4" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-semibold text-white">Extracción Asistida por IA (Claude Vision)</h4>
+                    <h4 className="text-sm font-semibold text-white">Extracción Asistida por Claude Vision API</h4>
                     <p className="text-xs text-slate-400 mt-0.5 leading-normal">
-                      Procesamiento multimodal con Anthropic Claude para extraer número de guía, RUT emisor, ítems, cantidades y validación difusa contra el catálogo de SKUs en formato JSON estructurado.
+                      El operario captura la guía con la cámara de su teléfono o tablet. El modelo multimodal extrae RUT, folio, cantidades y realiza conciliación semántica con el catálogo de SKUs de la sucursal.
                     </p>
                   </div>
                 </div>
 
-                {/* Punto 2 */}
+                {/* Solución 2 */}
                 <div className="flex gap-3.5">
                   <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mt-0.5">
                     <QrCode className="w-4 h-4" />
@@ -119,20 +120,20 @@ export default function CaseStudy() {
                   <div>
                     <h4 className="text-sm font-semibold text-white">Custodia QR por Estación y Maquinaria</h4>
                     <p className="text-xs text-slate-400 mt-0.5 leading-normal">
-                      Generación de QR únicos para herramientas críticas y pallets, permitiendo al operador registrar transferencias o despachos con un solo tap desde tablets industriales o teléfonos de bodega.
+                      Identificación con QR en transpaletas, maquinaria pesada y pallets de alta rotación para registrar cambios de operador y transferencias en patio en un solo toque.
                     </p>
                   </div>
                 </div>
 
-                {/* Punto 3 */}
+                {/* Solución 3 */}
                 <div className="flex gap-3.5">
                   <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 mt-0.5">
                     <Layers className="w-4 h-4" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-semibold text-white">Capa Full-Stack Next.js + PostgreSQL</h4>
+                    <h4 className="text-sm font-semibold text-white">Capa Edge Middleware (Next.js + Supabase)</h4>
                     <p className="text-xs text-slate-400 mt-0.5 leading-normal">
-                      Base de datos central en Supabase con Row-Level Security para separar permisos de digitador, jefe de patio y gerencia, con sincronización sub-segundo sin tocar el ERP base.
+                      Base de datos PostgreSQL sincronizada en la nube con permisos por rol (operario de patio, supervisor de bodega y administración), conviviendo en paralelo con su software contable existente.
                     </p>
                   </div>
                 </div>
@@ -140,8 +141,7 @@ export default function CaseStudy() {
               </div>
             </div>
 
-            {}
-            {/* Cita de Validación */}
+            {/* Testimonio y Validación de Terreno */}
             <div className="bg-gradient-to-r from-emerald-950/30 to-slate-900 p-5 rounded-2xl border border-emerald-500/20 flex gap-4 items-start">
               <Quote className="w-8 h-8 text-emerald-400 flex-shrink-0 opacity-60" />
               <div>
@@ -149,12 +149,12 @@ export default function CaseStudy() {
                   &ldquo;El personal de bodega adoptó la herramienta en dos turnos. Pasar de transcribir guías arrugadas a escanear con la cámara y ver el inventario cuadrado al instante eliminó las fricciones en la recepción.&rdquo;
                 </p>
                 <p className="text-[11px] font-mono text-emerald-400 mt-2 font-bold">
-                  — Validación de Operaciones en Terreno · Sector Ferretero Industrial
+                  — Validación de Operaciones en Terreno · Chilemat Sucursal Quillota
                 </p>
               </div>
             </div>
 
-            {/* Métricas de Impacto */}
+            {/* Métricas de Impacto Medibles */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <div className="bg-gradient-to-b from-slate-900 to-slate-950 p-4 rounded-xl border border-emerald-500/30">
                 <div className="text-emerald-400 font-mono text-xs font-semibold flex items-center gap-1">
@@ -162,7 +162,7 @@ export default function CaseStudy() {
                   <span>VELOCIDAD</span>
                 </div>
                 <div className="text-xl font-extrabold text-white mt-1">&lt; 5s</div>
-                <div className="text-[11px] text-slate-400 mt-0.5">Ingreso de guía física a stock activo</div>
+                <div className="text-[11px] text-slate-400 mt-0.5">De guía física a stock activo</div>
               </div>
 
               <div className="bg-gradient-to-b from-slate-900 to-slate-950 p-4 rounded-xl border border-cyan-500/30">
@@ -171,7 +171,7 @@ export default function CaseStudy() {
                   <span>EXACTITUD</span>
                 </div>
                 <div className="text-xl font-extrabold text-white mt-1">99.8%</div>
-                <div className="text-[11px] text-slate-400 mt-0.5">Eliminación de discrepancias de SKU</div>
+                <div className="text-[11px] text-slate-400 mt-0.5">Discrepancias de SKU erradicadas</div>
               </div>
 
               <div className="bg-gradient-to-b from-slate-900 to-slate-950 p-4 rounded-xl border border-purple-500/30">
@@ -180,17 +180,16 @@ export default function CaseStudy() {
                   <span>ADOPCIÓN</span>
                 </div>
                 <div className="text-xl font-extrabold text-white mt-1">10 Min</div>
-                <div className="text-[11px] text-slate-400 mt-0.5">Tiempo de capacitación por operario</div>
+                <div className="text-[11px] text-slate-400 mt-0.5">Capacitación requerida en patio</div>
               </div>
             </div>
 
           </div>
 
-          {}
-          {/* Columna Derecha: Consola Interactiva */}
+          {/* Columna Derecha: Consola Interactiva con Datos Reales del Caso */}
           <div className="lg:col-span-6 bg-slate-900/90 border border-slate-700/80 rounded-2xl shadow-2xl overflow-hidden flex flex-col">
             
-            {/* Barra Superior Estilo Ventana de Sistema */}
+            {/* Barra Superior Estilo Terminal Industrial */}
             <div className="bg-slate-950 px-4 py-3 border-b border-slate-800 flex items-center justify-between flex-wrap gap-2">
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 rounded-full bg-rose-500/80"></div>
@@ -199,7 +198,7 @@ export default function CaseStudy() {
                 <span className="font-mono text-xs text-slate-400 ml-2">chilemat-quillota-sync.app</span>
               </div>
 
-              {/* Botones de Pestaña */}
+              {/* Selector de Modos de Demostración */}
               <div className="flex bg-slate-900 p-0.5 rounded-lg border border-slate-800 text-[11px] font-mono">
                 <button
                   type="button"
@@ -210,7 +209,7 @@ export default function CaseStudy() {
                       : 'text-slate-400 hover:text-white'
                   }`}
                 >
-                  Simulador IA OCR
+                  Simulador OCR
                 </button>
                 <button
                   type="button"
@@ -237,22 +236,21 @@ export default function CaseStudy() {
               </div>
             </div>
 
-            {}
-            {/* Pestaña 1: Simulador IA OCR */}
+            {/* Pestaña 1: Extracción con Guía Real de Chilemat Quillota */}
             {activeTab === 'ocr' && (
               <div className="p-5 sm:p-6 flex-1 flex flex-col">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-2">
                     <FileText className="w-4 h-4 text-emerald-400" />
                     <span className="text-xs font-mono text-slate-300 font-semibold">
-                      Input: Guia_Chilemat_Quillota_#84920.pdf
+                      Guia_Despacho_Chilemat_#84920.pdf
                     </span>
                   </div>
                   {ocrStatus !== 'idle' && (
                     <button
                       type="button"
                       onClick={resetOcr}
-                      className="text-[11px] font-mono text-slate-400 hover:text-white flex items-center gap-1 transition-colors"
+                      className="text-[11px] font-mono text-slate-400 hover:text-white flex items-center gap-1 transition-colors cursor-pointer"
                     >
                       <RotateCcw className="w-3 h-3" />
                       <span>Reiniciar</span>
@@ -292,7 +290,7 @@ export default function CaseStudy() {
                         <button
                           type="button"
                           onClick={runOcrSimulation}
-                          className="w-full py-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 rounded-lg font-mono text-xs font-bold flex items-center justify-center gap-1.5 transition-all shadow-md"
+                          className="w-full py-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 rounded-lg font-mono text-xs font-bold flex items-center justify-center gap-1.5 transition-all shadow-md cursor-pointer"
                         >
                           <Play className="w-3.5 h-3.5 fill-current" />
                           <span>Ejecutar Extracción Claude 3.5</span>
@@ -302,7 +300,7 @@ export default function CaseStudy() {
                       {ocrStatus === 'processing' && (
                         <div className="space-y-1.5">
                           <div className="flex justify-between text-[10px] font-mono text-emerald-400">
-                            <span>Parsing OCR + Validación SKU...</span>
+                            <span>Validando SKUs contra catálogo...</span>
                             <span>{ocrProgress}%</span>
                           </div>
                           <div className="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
@@ -323,27 +321,27 @@ export default function CaseStudy() {
                     </div>
                   </div>
 
-                  {/* Salida JSON Supabase */}
+                  {/* Salida JSON Conciliada */}
                   <div className="bg-slate-950 rounded-xl p-4 border border-slate-800 flex flex-col justify-between font-mono text-xs">
                     <div>
                       <div className="flex items-center justify-between text-[11px] text-slate-400 border-b border-slate-800 pb-2 mb-2">
                         <span className="text-cyan-400 font-semibold flex items-center gap-1">
                           <Database className="w-3 h-3" />
-                          <span>Supabase Payload</span>
+                          <span>Payload Validado</span>
                         </span>
-                        <span className="text-[10px] text-slate-500">PostgreSQL Validated</span>
+                        <span className="text-[10px] text-slate-500">PostgreSQL Ready</span>
                       </div>
 
                       {ocrStatus !== 'done' ? (
                         <div className="h-36 flex flex-col items-center justify-center text-center p-4 text-slate-500">
                           <Cpu className="w-8 h-8 stroke-[1.2] mb-2 text-slate-600 animate-pulse" />
-                          <p className="text-[11px]">Haz clic en el botón para simular la extracción instantánea de la guía de despacho.</p>
+                          <p className="text-[11px]">Pulsa el botón para probar la extracción inteligente de la guía de despacho de Quillota.</p>
                         </div>
                       ) : (
                         <div className="space-y-2 text-[10px] overflow-y-auto max-h-40 pr-1">
                           <div className="bg-slate-900 p-2 rounded border border-slate-800">
-                            <span className="text-purple-400 font-bold">Distribuidor:</span> &quot;Chilemat Quillota&quot;<br />
-                            <span className="text-purple-400 font-bold">Doc_Type:</span> &quot;GUIA_DESPACHO_ELECTRONICA&quot;<br />
+                            <span className="text-purple-400 font-bold">Cliente:</span> &quot;Chilemat Quillota&quot;<br />
+                            <span className="text-purple-400 font-bold">Tipo_Doc:</span> &quot;GUIA_DESPACHO_ELECTRONICA&quot;<br />
                             <span className="text-purple-400 font-bold">Folio:</span> 84920
                           </div>
                           <div className="bg-slate-900 p-2 rounded border border-slate-800 space-y-1">
@@ -360,7 +358,7 @@ export default function CaseStudy() {
 
                     {ocrStatus === 'done' && (
                       <div className="mt-2 text-[10px] text-slate-400 flex items-center justify-between pt-2 border-t border-slate-800">
-                        <span className="text-emerald-400 font-semibold">● Sincronizado en Vivo</span>
+                        <span className="text-emerald-400 font-semibold">● Sincronizado con Supabase</span>
                         <span className="text-slate-500">Latencia: 142ms</span>
                       </div>
                     )}
@@ -370,18 +368,17 @@ export default function CaseStudy() {
               </div>
             )}
 
-            {}
-            {/* Pestaña 2: Control QR */}
+            {/* Pestaña 2: Control QR de Maquinaria y Activos */}
             {activeTab === 'qr' && (
               <div className="p-6 flex-1 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between mb-4">
                     <span className="text-xs font-mono text-cyan-400 flex items-center gap-1.5">
                       <ScanLine className="w-4 h-4" />
-                      <span>Scanner de Patio y Taller</span>
+                      <span>Control de Activos en Patio</span>
                     </span>
                     <span className="text-[10px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded">
-                      Sucursal: Chilemat Quillota
+                      Chilemat Sucursal Quillota
                     </span>
                   </div>
 
@@ -390,7 +387,7 @@ export default function CaseStudy() {
                       <div className="p-3 bg-white rounded-xl shadow-inner mb-3">
                         <QrCode className="w-24 h-24 text-slate-950" />
                       </div>
-                      <span className="font-mono text-xs text-slate-300 font-bold">ASSET: CHM-EQ-4412</span>
+                      <span className="font-mono text-xs text-slate-300 font-bold">ACTIVO: CHM-EQ-4412</span>
                       <span className="text-[10px] font-mono text-slate-500">Transpaleta Eléctrica 2.0T</span>
                     </div>
 
@@ -400,41 +397,40 @@ export default function CaseStudy() {
                         <div className="space-y-2 text-[10px]">
                           <div className="flex items-center gap-2 text-emerald-400 bg-emerald-500/5 p-1.5 rounded border border-emerald-500/20">
                             <CheckCircle2 className="w-3.5 h-3.5" />
-                            <span>14:10 - Check-out a Patio de Carga</span>
+                            <span>14:10 - Asignado a Patio de Carga</span>
                           </div>
                           <div className="flex items-center gap-2 text-slate-400 p-1.5">
                             <Clock className="w-3.5 h-3.5 text-slate-500" />
-                            <span>09:30 - Mantenimiento preventivo OK</span>
+                            <span>09:30 - Check preventivo de turno OK</span>
                           </div>
                           <div className="flex items-center gap-2 text-slate-400 p-1.5">
                             <Box className="w-3.5 h-3.5 text-slate-500" />
-                            <span>Ayer - Custodia: Operador R. Fuentes</span>
+                            <span>Ayer - Responsable: Turno Tarde</span>
                           </div>
                         </div>
                       </div>
 
                       <div className="pt-3 border-t border-slate-800 text-[10px] text-cyan-400 flex justify-between items-center">
                         <span>Estado: Operativo</span>
-                        <span className="text-slate-500">Dispositivo: PWA Industrial</span>
+                        <span className="text-slate-500">Escaneo desde Teléfono / Tablet</span>
                       </div>
                     </div>
                   </div>
                 </div>
 
                 <p className="mt-4 text-[11px] text-slate-400 text-center font-mono">
-                  Lectura instantánea desde cualquier smartphone o tablet rugerizada sin lectores externos costosos.
+                  Lectura instantánea sin lectores láser externos: opera directo con la cámara de cualquier teléfono.
                 </p>
               </div>
             )}
 
-            {}
-            {/* Pestaña 3: Arquitectura Técnica */}
+            {/* Pestaña 3: Arquitectura Técnica Middleware */}
             {activeTab === 'architecture' && (
               <div className="p-6 flex-1 flex flex-col justify-between font-mono">
                 <div>
                   <div className="text-xs text-slate-300 font-semibold mb-4 flex items-center gap-1.5">
                     <Terminal className="w-4 h-4 text-emerald-400" />
-                    <span>Pipeline Operativo sin Afectar tu ERP Base</span>
+                    <span>Arquitectura Técnica Desplegada (Edge Middleware)</span>
                   </div>
 
                   <div className="space-y-3 text-xs">
@@ -442,8 +438,8 @@ export default function CaseStudy() {
                       <div className="flex items-center gap-2.5">
                         <span className="w-6 h-6 rounded bg-slate-800 flex items-center justify-center text-[10px] text-emerald-400 font-bold">1</span>
                         <div>
-                          <div className="text-white font-bold text-[11px]">Captura en Terreno</div>
-                          <div className="text-[10px] text-slate-400">Foto con smartphone o PDF de guía emitido</div>
+                          <div className="text-white font-bold text-[11px]">Captura en Patio</div>
+                          <div className="text-[10px] text-slate-400">Foto con smartphone o PDF emitido por proveedor</div>
                         </div>
                       </div>
                       <span className="text-[10px] bg-slate-900 px-2 py-1 rounded text-slate-400">JPG / PDF</span>
@@ -453,8 +449,8 @@ export default function CaseStudy() {
                       <div className="flex items-center gap-2.5">
                         <span className="w-6 h-6 rounded bg-slate-800 flex items-center justify-center text-[10px] text-emerald-400 font-bold">2</span>
                         <div>
-                          <div className="text-white font-bold text-[11px]">Capa de IA (Zero Data Retention)</div>
-                          <div className="text-[10px] text-slate-400">Claude Vision valida SKUs y cantidades contra catálogo</div>
+                          <div className="text-white font-bold text-[11px]">Procesamiento IA (Zero Data Retention)</div>
+                          <div className="text-[10px] text-slate-400">Claude Vision extrae y concilia SKUs contra catálogo real</div>
                         </div>
                       </div>
                       <span className="text-[10px] bg-emerald-500/10 text-emerald-400 px-2 py-1 rounded border border-emerald-500/20">Anthropic API</span>
@@ -464,8 +460,8 @@ export default function CaseStudy() {
                       <div className="flex items-center gap-2.5">
                         <span className="w-6 h-6 rounded bg-slate-800 flex items-center justify-center text-[10px] text-emerald-400 font-bold">3</span>
                         <div>
-                          <div className="text-white font-bold text-[11px]">Base Central &amp; Webhooks</div>
-                          <div className="text-[10px] text-slate-400">PostgreSQL (Supabase) + Inyección a ERP vía API/CSV</div>
+                          <div className="text-white font-bold text-[11px]">Capa Central &amp; Webhooks</div>
+                          <div className="text-[10px] text-slate-400">PostgreSQL (Supabase) + Inyección a ERP vía API o CSV</div>
                         </div>
                       </div>
                       <span className="text-[10px] bg-cyan-500/10 text-cyan-400 px-2 py-1 rounded border border-cyan-500/20">Middleware</span>
@@ -475,8 +471,8 @@ export default function CaseStudy() {
                       <div className="flex items-center gap-2.5">
                         <span className="w-6 h-6 rounded bg-slate-800 flex items-center justify-center text-[10px] text-emerald-400 font-bold">4</span>
                         <div>
-                          <div className="text-white font-bold text-[11px]">Dashboard en Vivo para Gerencia</div>
-                          <div className="text-[10px] text-slate-400">Visibilidad de despachos en curso y alertas de stock</div>
+                          <div className="text-white font-bold text-[11px]">Dashboard en Vivo para Jefatura</div>
+                          <div className="text-[10px] text-slate-400">Visibilidad de recepciones en tiempo real y alertas de stock</div>
                         </div>
                       </div>
                       <span className="text-[10px] bg-purple-500/10 text-purple-400 px-2 py-1 rounded border border-purple-500/20">Next.js UI</span>
@@ -484,15 +480,34 @@ export default function CaseStudy() {
                   </div>
                 </div>
 
-                <div className="mt-4 pt-3 border-t border-slate-800 text-[10px] text-slate-400 flex justify-between">
-                  <span>Compatibilidad: SAP, Softland, Defontana</span>
-                  <span>Seguridad: Cifrado en tránsito y reposo</span>
+                <div className="mt-4 pt-3 border-t border-slate-800 text-[10px] text-slate-400 flex flex-col sm:flex-row justify-between gap-1">
+                  <span>Compatibilidad: SAP, Softland, Defontana, Oracle</span>
+                  <span className="text-emerald-400 font-semibold">● No requiere reemplazar tu ERP actual</span>
                 </div>
               </div>
             )}
 
           </div>
 
+        </div>
+
+        {/* Micro-banner de Conversión del Caso */}
+        <div className="mt-12 p-4 rounded-2xl bg-slate-900/50 border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-400 flex-shrink-0">
+              <ShieldCheck className="w-4 h-4" />
+            </div>
+            <p className="text-xs text-slate-300 font-mono">
+              ¿Quieres evaluar cómo se adaptaría este pipeline a las guías y bodegas de tu empresa?
+            </p>
+          </div>
+          <a
+            href="#final-cta"
+            className="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-mono text-xs font-bold transition-all flex items-center gap-1.5 flex-shrink-0 shadow-md shadow-emerald-500/20"
+          >
+            <span>Agendar Auditoría Gratuita (20 Min)</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </a>
         </div>
 
       </div>
