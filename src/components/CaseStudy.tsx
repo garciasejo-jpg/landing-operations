@@ -1,126 +1,500 @@
-import { Zap, TrendingDown, LayoutDashboard, CheckCircle2, Search, Cpu, BarChart3, ArrowRight } from "lucide-react";
+'use client';
+
+import React, { useState } from 'react';
+import {
+  Sparkles,
+  Cpu,
+  QrCode,
+  Layers,
+  Zap,
+  TrendingDown,
+  Clock,
+  Quote,
+  FileText,
+  RotateCcw,
+  Play,
+  Check,
+  Database,
+  ScanLine,
+  Box,
+  CheckCircle2,
+  Terminal,
+} from 'lucide-react';
 
 export default function CaseStudy() {
+  const [activeTab, setActiveTab] = useState<'ocr' | 'qr' | 'architecture'>('ocr');
+  const [ocrStatus, setOcrStatus] = useState<'idle' | 'processing' | 'done'>('idle');
+  const [ocrProgress, setOcrProgress] = useState<number>(0);
+
+  const runOcrSimulation = () => {
+    setOcrStatus('processing');
+    setOcrProgress(0);
+
+    const interval = setInterval(() => {
+      setOcrProgress((prev) => {
+        if (prev >= 100) {
+          clearInterval(interval);
+          setOcrStatus('done');
+          return 100;
+        }
+        return prev + 20;
+      });
+    }, 220);
+  };
+
+  const resetOcr = () => {
+    setOcrStatus('idle');
+    setOcrProgress(0);
+  };
+
   return (
-    <section id="case-study" className="py-20 border-t border-zinc-800/60 max-w-5xl mx-auto px-6">
-      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-4">
-        Featured Case Study
-      </div>
-      <h2 className="text-3xl md:text-4xl font-bold text-zinc-100 max-w-3xl">
-        From Paper Delivery Notes to Real-Time Cloud Inventory in Seconds.
-      </h2>
+    <section id="case-study" className="py-24 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Encabezado de Autoridad */}
+        <div className="flex flex-col items-start mb-12">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-mono text-xs font-bold uppercase tracking-wider mb-4">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Caso de Éxito Validado en Producción</span>
+          </div>
 
-      {/* Generic Operational Workflow Diagram */}
-      <div className="mt-8 rounded-2xl border border-zinc-800 bg-zinc-900/30 p-6 md:p-8">
-        <div className="text-xs font-mono text-emerald-400 uppercase tracking-wider mb-6 flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
-          How the Operational Pipeline Works
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight max-w-4xl leading-tight">
+            Chilemat Quillota: De Guías de Despacho en Papel a Inventario Cloud en &lt; 5 Segundos.
+          </h2>
+          <p className="mt-3 text-slate-400 text-sm sm:text-base font-mono">
+            [ Digitalización de patio y bodega ferretera: Extracción OCR con IA + Trazabilidad QR ]
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
-          {/* Step 1: Input Friction */}
-          <div className="p-5 rounded-xl border border-zinc-800 bg-zinc-900/60 flex flex-col justify-between">
-            <div>
-              <div className="w-10 h-10 rounded-lg bg-zinc-800 flex items-center justify-center text-zinc-300 mb-4">
-                <Search className="w-5 h-5 text-emerald-400" />
+        {/* Grilla Principal: Contexto + Demo Interactiva */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          {}
+          {/* Columna Izquierda: Desafío, Solución y Cita */}
+          <div className="lg:col-span-6 space-y-6">
+            
+            {/* El Desafío */}
+            <div className="bg-slate-900/60 border border-slate-800/90 rounded-2xl p-6 sm:p-8">
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="text-lg font-bold text-white flex items-center gap-2.5">
+                  <span className="w-3 h-3 rounded-full bg-rose-500 inline-block"></span>
+                  <span>El Desafío Operativo</span>
+                </h3>
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">
+                  Retail Industrial & Ferretero
+                </span>
               </div>
-              <h3 className="font-semibold text-zinc-100 text-base mb-2">1. Capture Floor Data</h3>
-              <p className="text-zinc-400 text-xs leading-relaxed">
-                We identify physical bottlenecks (paper notes, manual tallies, QR tags) and set up instant mobile/tablet capture methods on the shop floor.
+              <p className="text-slate-300 text-sm leading-relaxed">
+                Con cientos de guías de despacho físicas circulando semanalmente en la operación de <strong>Chilemat Quillota</strong>, el ingreso manual de herramientas, materiales de fijación y maquinaria generaba retrasos de hasta 48 horas en la actualización del stock disponible y frecuentes diferencias de inventario entre bodega y patio.
               </p>
             </div>
-            <div className="mt-4 pt-3 border-t border-zinc-800 text-[11px] font-mono text-zinc-500">
-              Input: Physical &amp; Paper Data
-            </div>
-          </div>
 
-          {/* Step 2: Automated Processing */}
-          <div className="p-5 rounded-xl border border-emerald-500/30 bg-emerald-950/10 flex flex-col justify-between relative">
-            <div>
-              <div className="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-400 mb-4">
-                <Cpu className="w-5 h-5" />
+            {/* La Solución */}
+            <div className="bg-slate-900/60 border border-slate-800/90 rounded-2xl p-6 sm:p-8">
+              <h3 className="text-lg font-bold text-white flex items-center gap-2.5 mb-4">
+                <span className="w-3 h-3 rounded-full bg-cyan-400 inline-block"></span>
+                <span>La Arquitectura Implementada</span>
+              </h3>
+
+              <div className="space-y-4">
+                
+                {/* Punto 1 */}
+                <div className="flex gap-3.5">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mt-0.5">
+                    <Cpu className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-semibold text-white">Extracción Asistida por IA (Claude Vision)</h4>
+                    <p className="text-xs text-slate-400 mt-0.5 leading-normal">
+                      Procesamiento multimodal con Anthropic Claude para extraer número de guía, RUT emisor, ítems, cantidades y validación difusa contra el catálogo de SKUs en formato JSON estructurado.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Punto 2 */}
+                <div className="flex gap-3.5">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mt-0.5">
+                    <QrCode className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-semibold text-white">Custodia QR por Estación y Maquinaria</h4>
+                    <p className="text-xs text-slate-400 mt-0.5 leading-normal">
+                      Generación de QR únicos para herramientas críticas y pallets, permitiendo al operador registrar transferencias o despachos con un solo tap desde tablets industriales o teléfonos de bodega.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Punto 3 */}
+                <div className="flex gap-3.5">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 mt-0.5">
+                    <Layers className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-semibold text-white">Capa Full-Stack Next.js + PostgreSQL</h4>
+                    <p className="text-xs text-slate-400 mt-0.5 leading-normal">
+                      Base de datos central en Supabase con Row-Level Security para separar permisos de digitador, jefe de patio y gerencia, con sincronización sub-segundo sin tocar el ERP base.
+                    </p>
+                  </div>
+                </div>
+
               </div>
-              <h3 className="font-semibold text-zinc-100 text-base mb-2">2. AI &amp; Logic Processing</h3>
-              <p className="text-zinc-300 text-xs leading-relaxed">
-                Raw data and document scans are instantly parsed, validated, and normalized using custom LLMs and automated backend pipelines.
-              </p>
             </div>
-            <div className="mt-4 pt-3 border-t border-emerald-500/20 text-[11px] font-mono text-emerald-400">
-              Process: Zero Manual Entry
-            </div>
-          </div>
 
-          {/* Step 3: Centralized Operations */}
-          <div className="p-5 rounded-xl border border-zinc-800 bg-zinc-900/60 flex flex-col justify-between">
-            <div>
-              <div className="w-10 h-10 rounded-lg bg-zinc-800 flex items-center justify-center text-zinc-300 mb-4">
-                <BarChart3 className="w-5 h-5 text-emerald-400" />
+            {}
+            {/* Cita de Validación */}
+            <div className="bg-gradient-to-r from-emerald-950/30 to-slate-900 p-5 rounded-2xl border border-emerald-500/20 flex gap-4 items-start">
+              <Quote className="w-8 h-8 text-emerald-400 flex-shrink-0 opacity-60" />
+              <div>
+                <p className="text-xs text-slate-300 italic leading-relaxed">
+                  &ldquo;El personal de bodega adoptó la herramienta en dos turnos. Pasar de transcribir guías arrugadas a escanear con la cámara y ver el inventario cuadrado al instante eliminó las fricciones en la recepción.&rdquo;
+                </p>
+                <p className="text-[11px] font-mono text-emerald-400 mt-2 font-bold">
+                  — Validación de Operaciones en Terreno · Sector Ferretero Industrial
+                </p>
               </div>
-              <h3 className="font-semibold text-zinc-100 text-base mb-2">3. Real-Time Operations</h3>
-              <p className="text-zinc-400 text-xs leading-relaxed">
-                Everything syncs into a tailored cloud database with live dashboards, instant status updates, and actionable operational KPIs.
-              </p>
             </div>
-            <div className="mt-4 pt-3 border-t border-zinc-800 text-[11px] font-mono text-zinc-500">
-              Output: Real-Time Visibility
-            </div>
-          </div>
-        </div>
-      </div>
 
-      {/* Case Details & Metrics */}
-      <div className="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <div className="lg:col-span-2 space-y-6">
-          <div className="p-6 rounded-xl border border-zinc-800/80 bg-zinc-900/40">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-zinc-400 mb-2">The Challenge</h3>
-            <p className="text-zinc-300 leading-relaxed text-sm md:text-base">
-              An industrial hardware supplier and warehouse operation was managing hundreds of physical dispatch guides (guías de despacho) weekly. Paper documents were prone to misplacement, manual logging took hours, and tracing physical assets across workshop stations was sluggish.
-            </p>
+            {/* Métricas de Impacto */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div className="bg-gradient-to-b from-slate-900 to-slate-950 p-4 rounded-xl border border-emerald-500/30">
+                <div className="text-emerald-400 font-mono text-xs font-semibold flex items-center gap-1">
+                  <Zap className="w-3.5 h-3.5" />
+                  <span>VELOCIDAD</span>
+                </div>
+                <div className="text-xl font-extrabold text-white mt-1">&lt; 5s</div>
+                <div className="text-[11px] text-slate-400 mt-0.5">Ingreso de guía física a stock activo</div>
+              </div>
+
+              <div className="bg-gradient-to-b from-slate-900 to-slate-950 p-4 rounded-xl border border-cyan-500/30">
+                <div className="text-cyan-400 font-mono text-xs font-semibold flex items-center gap-1">
+                  <TrendingDown className="w-3.5 h-3.5" />
+                  <span>EXACTITUD</span>
+                </div>
+                <div className="text-xl font-extrabold text-white mt-1">99.8%</div>
+                <div className="text-[11px] text-slate-400 mt-0.5">Eliminación de discrepancias de SKU</div>
+              </div>
+
+              <div className="bg-gradient-to-b from-slate-900 to-slate-950 p-4 rounded-xl border border-purple-500/30">
+                <div className="text-purple-400 font-mono text-xs font-semibold flex items-center gap-1">
+                  <Clock className="w-3.5 h-3.5" />
+                  <span>ADOPCIÓN</span>
+                </div>
+                <div className="text-xl font-extrabold text-white mt-1">10 Min</div>
+                <div className="text-[11px] text-slate-400 mt-0.5">Tiempo de capacitación por operario</div>
+              </div>
+            </div>
+
           </div>
 
-          <div className="p-6 rounded-xl border border-zinc-800/80 bg-zinc-900/40">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-zinc-400 mb-4">The Solution Architecture</h3>
-            <ul className="space-y-3">
-              <li className="flex items-start gap-3 text-zinc-300 text-sm leading-relaxed">
-                <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
-                <span><strong className="text-zinc-100">AI-Powered OCR Extraction:</strong> Real-time document parsing using Anthropic Claude API to instantly convert physical paper scans into clean, structured database records.</span>
-              </li>
-              <li className="flex items-start gap-3 text-zinc-300 text-sm leading-relaxed">
-                <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
-                <span><strong className="text-zinc-100">QR-Driven Asset Management:</strong> Unique dynamic QR codes for instant physical-to-digital status updates on workshop equipment.</span>
-              </li>
-              <li className="flex items-start gap-3 text-zinc-300 text-sm leading-relaxed">
-                <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
-                <span><strong className="text-zinc-100">Full-Stack Infrastructure:</strong> Built on Next.js, Tailwind CSS, and Supabase (PostgreSQL) for sub-second synchronization and multi-user access.</span>
-              </li>
-            </ul>
+          {}
+          {/* Columna Derecha: Consola Interactiva */}
+          <div className="lg:col-span-6 bg-slate-900/90 border border-slate-700/80 rounded-2xl shadow-2xl overflow-hidden flex flex-col">
+            
+            {/* Barra Superior Estilo Ventana de Sistema */}
+            <div className="bg-slate-950 px-4 py-3 border-b border-slate-800 flex items-center justify-between flex-wrap gap-2">
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 rounded-full bg-rose-500/80"></div>
+                <div className="w-3 h-3 rounded-full bg-amber-500/80"></div>
+                <div className="w-3 h-3 rounded-full bg-emerald-500/80"></div>
+                <span className="font-mono text-xs text-slate-400 ml-2">chilemat-quillota-sync.app</span>
+              </div>
+
+              {/* Botones de Pestaña */}
+              <div className="flex bg-slate-900 p-0.5 rounded-lg border border-slate-800 text-[11px] font-mono">
+                <button
+                  type="button"
+                  onClick={() => setActiveTab('ocr')}
+                  className={`px-2.5 py-1 rounded-md transition-all ${
+                    activeTab === 'ocr'
+                      ? 'bg-emerald-500 text-slate-950 font-bold'
+                      : 'text-slate-400 hover:text-white'
+                  }`}
+                >
+                  Simulador IA OCR
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setActiveTab('qr')}
+                  className={`px-2.5 py-1 rounded-md transition-all ${
+                    activeTab === 'qr'
+                      ? 'bg-emerald-500 text-slate-950 font-bold'
+                      : 'text-slate-400 hover:text-white'
+                  }`}
+                >
+                  Control QR
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setActiveTab('architecture')}
+                  className={`px-2.5 py-1 rounded-md transition-all ${
+                    activeTab === 'architecture'
+                      ? 'bg-emerald-500 text-slate-950 font-bold'
+                      : 'text-slate-400 hover:text-white'
+                  }`}
+                >
+                  Arquitectura
+                </button>
+              </div>
+            </div>
+
+            {}
+            {/* Pestaña 1: Simulador IA OCR */}
+            {activeTab === 'ocr' && (
+              <div className="p-5 sm:p-6 flex-1 flex flex-col">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-2">
+                    <FileText className="w-4 h-4 text-emerald-400" />
+                    <span className="text-xs font-mono text-slate-300 font-semibold">
+                      Input: Guia_Chilemat_Quillota_#84920.pdf
+                    </span>
+                  </div>
+                  {ocrStatus !== 'idle' && (
+                    <button
+                      type="button"
+                      onClick={resetOcr}
+                      className="text-[11px] font-mono text-slate-400 hover:text-white flex items-center gap-1 transition-colors"
+                    >
+                      <RotateCcw className="w-3 h-3" />
+                      <span>Reiniciar</span>
+                    </button>
+                  )}
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 flex-1">
+                  
+                  {/* Vista Previa de la Guía */}
+                  <div className="bg-slate-950 rounded-xl p-4 border border-slate-800 relative overflow-hidden flex flex-col justify-between">
+                    <div className="border border-dashed border-slate-700 rounded-lg p-3 bg-slate-900/50">
+                      <div className="flex justify-between items-start text-[10px] font-mono text-slate-400 border-b border-slate-800 pb-2">
+                        <div>
+                          <span className="font-bold text-slate-200">CHILEMAT QUILLOTA</span>
+                          <p>RUT: 76.432.890-5</p>
+                        </div>
+                        <span className="px-1.5 py-0.5 bg-rose-500/20 text-rose-300 rounded font-bold">GUÍA #84920</span>
+                      </div>
+                      <div className="mt-2 space-y-1 text-[10px] font-mono text-slate-400">
+                        <p>Destino: Patio de Carga / Sucursal Quillota</p>
+                        <p>Transporte: Camión Patente LF-99-23</p>
+                        <div className="mt-2 text-[9px] bg-slate-950 p-1.5 rounded border border-slate-800 leading-relaxed">
+                          • 15x Taladro Inalámbrico 20V (SKU-DEW-20V)<br />
+                          • 40x Disco Corte Metal 4.5&quot; (SKU-DSC-45)<br />
+                          • 08x Sierra Circular 1800W (SKU-MAK-SC)
+                        </div>
+                      </div>
+                    </div>
+
+                    {ocrStatus === 'processing' && (
+                      <div className="absolute inset-x-0 h-1 bg-gradient-to-r from-transparent via-emerald-400 to-transparent shadow-[0_0_12px_#34d399] animate-bounce"></div>
+                    )}
+
+                    <div className="mt-3">
+                      {ocrStatus === 'idle' && (
+                        <button
+                          type="button"
+                          onClick={runOcrSimulation}
+                          className="w-full py-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 rounded-lg font-mono text-xs font-bold flex items-center justify-center gap-1.5 transition-all shadow-md"
+                        >
+                          <Play className="w-3.5 h-3.5 fill-current" />
+                          <span>Ejecutar Extracción Claude 3.5</span>
+                        </button>
+                      )}
+
+                      {ocrStatus === 'processing' && (
+                        <div className="space-y-1.5">
+                          <div className="flex justify-between text-[10px] font-mono text-emerald-400">
+                            <span>Parsing OCR + Validación SKU...</span>
+                            <span>{ocrProgress}%</span>
+                          </div>
+                          <div className="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                            <div
+                              className="h-full bg-emerald-400 transition-all duration-300"
+                              style={{ width: `${ocrProgress}%` }}
+                            ></div>
+                          </div>
+                        </div>
+                      )}
+
+                      {ocrStatus === 'done' && (
+                        <div className="flex items-center justify-center gap-1.5 py-1.5 text-xs font-mono text-emerald-400 bg-emerald-500/10 rounded-lg border border-emerald-500/30">
+                          <Check className="w-3.5 h-3.5" />
+                          <span>Procesado con Éxito (1.6s)</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Salida JSON Supabase */}
+                  <div className="bg-slate-950 rounded-xl p-4 border border-slate-800 flex flex-col justify-between font-mono text-xs">
+                    <div>
+                      <div className="flex items-center justify-between text-[11px] text-slate-400 border-b border-slate-800 pb-2 mb-2">
+                        <span className="text-cyan-400 font-semibold flex items-center gap-1">
+                          <Database className="w-3 h-3" />
+                          <span>Supabase Payload</span>
+                        </span>
+                        <span className="text-[10px] text-slate-500">PostgreSQL Validated</span>
+                      </div>
+
+                      {ocrStatus !== 'done' ? (
+                        <div className="h-36 flex flex-col items-center justify-center text-center p-4 text-slate-500">
+                          <Cpu className="w-8 h-8 stroke-[1.2] mb-2 text-slate-600 animate-pulse" />
+                          <p className="text-[11px]">Haz clic en el botón para simular la extracción instantánea de la guía de despacho.</p>
+                        </div>
+                      ) : (
+                        <div className="space-y-2 text-[10px] overflow-y-auto max-h-40 pr-1">
+                          <div className="bg-slate-900 p-2 rounded border border-slate-800">
+                            <span className="text-purple-400 font-bold">Distribuidor:</span> &quot;Chilemat Quillota&quot;<br />
+                            <span className="text-purple-400 font-bold">Doc_Type:</span> &quot;GUIA_DESPACHO_ELECTRONICA&quot;<br />
+                            <span className="text-purple-400 font-bold">Folio:</span> 84920
+                          </div>
+                          <div className="bg-slate-900 p-2 rounded border border-slate-800 space-y-1">
+                            <span className="text-emerald-400 font-bold">Ítems Conciliados (3/3):</span>
+                            <div className="text-[9px] text-slate-300">
+                              1. [SKU-DEW-20V] Qty: 15 (Stock Actualizado)<br />
+                              2. [SKU-DSC-45] Qty: 40 (Stock Actualizado)<br />
+                              3. [SKU-MAK-SC] Qty: 08 (Stock Actualizado)
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+
+                    {ocrStatus === 'done' && (
+                      <div className="mt-2 text-[10px] text-slate-400 flex items-center justify-between pt-2 border-t border-slate-800">
+                        <span className="text-emerald-400 font-semibold">● Sincronizado en Vivo</span>
+                        <span className="text-slate-500">Latencia: 142ms</span>
+                      </div>
+                    )}
+                  </div>
+
+                </div>
+              </div>
+            )}
+
+            {}
+            {/* Pestaña 2: Control QR */}
+            {activeTab === 'qr' && (
+              <div className="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-xs font-mono text-cyan-400 flex items-center gap-1.5">
+                      <ScanLine className="w-4 h-4" />
+                      <span>Scanner de Patio y Taller</span>
+                    </span>
+                    <span className="text-[10px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded">
+                      Sucursal: Chilemat Quillota
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 text-center flex flex-col items-center justify-center">
+                      <div className="p-3 bg-white rounded-xl shadow-inner mb-3">
+                        <QrCode className="w-24 h-24 text-slate-950" />
+                      </div>
+                      <span className="font-mono text-xs text-slate-300 font-bold">ASSET: CHM-EQ-4412</span>
+                      <span className="text-[10px] font-mono text-slate-500">Transpaleta Eléctrica 2.0T</span>
+                    </div>
+
+                    <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 font-mono text-xs flex flex-col justify-between">
+                      <div>
+                        <div className="text-[11px] text-slate-400 mb-2 font-bold uppercase tracking-wider">Historial de Custodia</div>
+                        <div className="space-y-2 text-[10px]">
+                          <div className="flex items-center gap-2 text-emerald-400 bg-emerald-500/5 p-1.5 rounded border border-emerald-500/20">
+                            <CheckCircle2 className="w-3.5 h-3.5" />
+                            <span>14:10 - Check-out a Patio de Carga</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-slate-400 p-1.5">
+                            <Clock className="w-3.5 h-3.5 text-slate-500" />
+                            <span>09:30 - Mantenimiento preventivo OK</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-slate-400 p-1.5">
+                            <Box className="w-3.5 h-3.5 text-slate-500" />
+                            <span>Ayer - Custodia: Operador R. Fuentes</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="pt-3 border-t border-slate-800 text-[10px] text-cyan-400 flex justify-between items-center">
+                        <span>Estado: Operativo</span>
+                        <span className="text-slate-500">Dispositivo: PWA Industrial</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <p className="mt-4 text-[11px] text-slate-400 text-center font-mono">
+                  Lectura instantánea desde cualquier smartphone o tablet rugerizada sin lectores externos costosos.
+                </p>
+              </div>
+            )}
+
+            {}
+            {/* Pestaña 3: Arquitectura Técnica */}
+            {activeTab === 'architecture' && (
+              <div className="p-6 flex-1 flex flex-col justify-between font-mono">
+                <div>
+                  <div className="text-xs text-slate-300 font-semibold mb-4 flex items-center gap-1.5">
+                    <Terminal className="w-4 h-4 text-emerald-400" />
+                    <span>Pipeline Operativo sin Afectar tu ERP Base</span>
+                  </div>
+
+                  <div className="space-y-3 text-xs">
+                    <div className="bg-slate-950 p-3 rounded-xl border border-slate-800 flex items-center justify-between">
+                      <div className="flex items-center gap-2.5">
+                        <span className="w-6 h-6 rounded bg-slate-800 flex items-center justify-center text-[10px] text-emerald-400 font-bold">1</span>
+                        <div>
+                          <div className="text-white font-bold text-[11px]">Captura en Terreno</div>
+                          <div className="text-[10px] text-slate-400">Foto con smartphone o PDF de guía emitido</div>
+                        </div>
+                      </div>
+                      <span className="text-[10px] bg-slate-900 px-2 py-1 rounded text-slate-400">JPG / PDF</span>
+                    </div>
+
+                    <div className="bg-slate-950 p-3 rounded-xl border border-slate-800 flex items-center justify-between">
+                      <div className="flex items-center gap-2.5">
+                        <span className="w-6 h-6 rounded bg-slate-800 flex items-center justify-center text-[10px] text-emerald-400 font-bold">2</span>
+                        <div>
+                          <div className="text-white font-bold text-[11px]">Capa de IA (Zero Data Retention)</div>
+                          <div className="text-[10px] text-slate-400">Claude Vision valida SKUs y cantidades contra catálogo</div>
+                        </div>
+                      </div>
+                      <span className="text-[10px] bg-emerald-500/10 text-emerald-400 px-2 py-1 rounded border border-emerald-500/20">Anthropic API</span>
+                    </div>
+
+                    <div className="bg-slate-950 p-3 rounded-xl border border-slate-800 flex items-center justify-between">
+                      <div className="flex items-center gap-2.5">
+                        <span className="w-6 h-6 rounded bg-slate-800 flex items-center justify-center text-[10px] text-emerald-400 font-bold">3</span>
+                        <div>
+                          <div className="text-white font-bold text-[11px]">Base Central &amp; Webhooks</div>
+                          <div className="text-[10px] text-slate-400">PostgreSQL (Supabase) + Inyección a ERP vía API/CSV</div>
+                        </div>
+                      </div>
+                      <span className="text-[10px] bg-cyan-500/10 text-cyan-400 px-2 py-1 rounded border border-cyan-500/20">Middleware</span>
+                    </div>
+
+                    <div className="bg-slate-950 p-3 rounded-xl border border-slate-800 flex items-center justify-between">
+                      <div className="flex items-center gap-2.5">
+                        <span className="w-6 h-6 rounded bg-slate-800 flex items-center justify-center text-[10px] text-emerald-400 font-bold">4</span>
+                        <div>
+                          <div className="text-white font-bold text-[11px]">Dashboard en Vivo para Gerencia</div>
+                          <div className="text-[10px] text-slate-400">Visibilidad de despachos en curso y alertas de stock</div>
+                        </div>
+                      </div>
+                      <span className="text-[10px] bg-purple-500/10 text-purple-400 px-2 py-1 rounded border border-purple-500/20">Next.js UI</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-4 pt-3 border-t border-slate-800 text-[10px] text-slate-400 flex justify-between">
+                  <span>Compatibilidad: SAP, Softland, Defontana</span>
+                  <span>Seguridad: Cifrado en tránsito y reposo</span>
+                </div>
+              </div>
+            )}
+
           </div>
+
         </div>
 
-        {/* KPI Cards */}
-        <div className="flex flex-col gap-4">
-          <div className="p-5 rounded-xl border border-emerald-500/20 bg-emerald-950/10 flex items-start gap-4">
-            <Zap className="w-6 h-6 text-emerald-400 shrink-0 mt-1" />
-            <div>
-              <div className="text-2xl font-bold text-zinc-100">&lt; 5 seconds</div>
-              <div className="text-xs text-zinc-400 mt-0.5">Near-Zero Entry Time from scan to database</div>
-            </div>
-          </div>
-          <div className="p-5 rounded-xl border border-emerald-500/20 bg-emerald-950/10 flex items-start gap-4">
-            <TrendingDown className="w-6 h-6 text-emerald-400 shrink-0 mt-1" />
-            <div>
-              <div className="text-2xl font-bold text-zinc-100">0 Typo Errors</div>
-              <div className="text-xs text-zinc-400 mt-0.5">Elimination of manual SKU mismatches</div>
-            </div>
-          </div>
-          <div className="p-5 rounded-xl border border-emerald-500/20 bg-emerald-950/10 flex items-start gap-4">
-            <LayoutDashboard className="w-6 h-6 text-emerald-400 shrink-0 mt-1" />
-            <div>
-              <div className="text-2xl font-bold text-zinc-100">Live Metrics</div>
-              <div className="text-xs text-zinc-400 mt-0.5">Instant shop-floor transparency</div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
