@@ -8,8 +8,6 @@ interface NavLink {
   href: string;
 }
 
-// Enlaces alineados con el nuevo orden de persuasión:
-// Problema -> Caso de Estudio -> Sobre Mí (Autoridad) -> Servicios (Precios) -> FAQ
 const NAV_LINKS: NavLink[] = [
   { label: 'Fricción Operativa', href: '#problem' },
   { label: 'Caso Chilemat Quillota', href: '#case-study' },
@@ -29,14 +27,30 @@ export default function Navbar() {
     setIsMobileMenuOpen(false);
   };
 
+  // Función de desplazamiento suave universal para los enlaces del menú
+  const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    closeMobileMenu();
+    const targetId = href.replace('#', '');
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      window.history.pushState(null, '', href);
+    }
+  };
+
   return (
     <header className="sticky top-0 z-40 backdrop-blur-md bg-[#090D14]/85 border-b border-slate-800/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         
-        {/* Identidad de Marca y Credenciales Rápidas */}
+        {/* Identidad de Marca */}
         <a 
           href="#" 
-          className="flex items-center gap-3 group focus:outline-none"
+          onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
+          className="flex items-center gap-3 group focus:outline-none cursor-pointer"
           aria-label="José Miguel García - Inicio"
         >
           <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-emerald-400 via-teal-500 to-cyan-600 p-[1px] shadow-lg shadow-emerald-500/20 group-hover:shadow-emerald-500/35 transition-all">
@@ -59,13 +73,14 @@ export default function Navbar() {
           </div>
         </a>
 
-        {/* Navegación Desktop Ordenada */}
+        {/* Navegación Desktop */}
         <nav className="hidden lg:flex items-center gap-6 text-xs font-medium text-slate-300">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="hover:text-emerald-400 transition-colors py-1"
+              onClick={(e) => handleScrollTo(e, link.href)}
+              className="hover:text-emerald-400 transition-colors py-1 cursor-pointer"
             >
               {link.label}
             </a>
@@ -76,7 +91,8 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           <a
             href="#final-cta"
-            className="relative group overflow-hidden rounded-lg p-[1px] focus:outline-none focus:ring-2 focus:ring-emerald-400/50"
+            onClick={(e) => handleScrollTo(e, '#final-cta')}
+            className="relative group overflow-hidden rounded-lg p-[1px] focus:outline-none focus:ring-2 focus:ring-emerald-400/50 cursor-pointer"
           >
             <span className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-cyan-500 group-hover:opacity-100 transition-opacity"></span>
             <span className="relative block px-3.5 sm:px-4 py-2 rounded-[7px] bg-slate-950 font-mono text-xs font-semibold text-emerald-300 group-hover:bg-opacity-80 transition-all flex items-center gap-1.5">
@@ -98,7 +114,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Menú Desplegable para Dispositivos Móviles */}
+      {/* Menú Desplegable Móvil */}
       {isMobileMenuOpen && (
         <div className="lg:hidden border-t border-slate-800 bg-[#090D14]/95 backdrop-blur-lg px-4 py-4 space-y-2">
           <div className="flex items-center gap-2 px-3 py-1.5 rounded bg-slate-900/80 border border-slate-800 text-[11px] font-mono text-emerald-400 mb-3">
@@ -110,8 +126,8 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              onClick={closeMobileMenu}
-              className="block px-3 py-2 text-sm text-slate-300 hover:text-emerald-400 hover:bg-slate-900/60 rounded-lg transition-colors"
+              onClick={(e) => handleScrollTo(e, link.href)}
+              className="block px-3 py-2 text-sm text-slate-300 hover:text-emerald-400 hover:bg-slate-900/60 rounded-lg transition-colors cursor-pointer"
             >
               {link.label}
             </a>
@@ -120,8 +136,8 @@ export default function Navbar() {
           <div className="pt-2 border-t border-slate-800">
             <a
               href="#final-cta"
-              onClick={closeMobileMenu}
-              className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-emerald-500 text-slate-950 font-mono text-xs font-bold transition-all shadow-md shadow-emerald-500/20"
+              onClick={(e) => handleScrollTo(e, '#final-cta')}
+              className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-emerald-500 text-slate-950 font-mono text-xs font-bold transition-all shadow-md shadow-emerald-500/20 cursor-pointer"
             >
               <Calendar className="w-4 h-4" />
               <span>Agendar Auditoría Gratuita (20 Min)</span>

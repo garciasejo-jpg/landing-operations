@@ -26,6 +26,17 @@ export default function Hero() {
     return () => clearInterval(timer);
   }, []);
 
+  // Función para garantizar desplazamiento suave sin que el navegador bloquee el ancla
+  const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Actualizamos la URL limpiamente
+      window.history.pushState(null, '', `#${targetId}`);
+    }
+  };
+
   return (
     <section className="relative z-10 pt-10 pb-16 md:pt-16 md:pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       
@@ -66,23 +77,26 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
             <a
               href="#final-cta"
-              className="px-7 py-4 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-slate-950 font-bold text-sm sm:text-base tracking-wide transition-all duration-200 shadow-lg shadow-emerald-500/25 flex items-center justify-center gap-2 group"
+              onClick={(e) => handleScrollTo(e, 'final-cta')}
+              className="px-7 py-4 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-slate-950 font-bold text-sm sm:text-base tracking-wide transition-all duration-200 shadow-lg shadow-emerald-500/25 flex items-center justify-center gap-2 group cursor-pointer"
             >
               <Calendar className="w-5 h-5 text-slate-950" />
               <span>Agendar Auditoría Gratuita (20 Min)</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </a>
 
+            {/* Botón Ver Caso de Estudio con Scroll Suave Garantizado */}
             <a
               href="#case-study"
-              className="px-6 py-4 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 hover:text-white border border-slate-700 font-mono text-xs sm:text-sm font-medium transition-all flex items-center justify-center gap-2"
+              onClick={(e) => handleScrollTo(e, 'case-study')}
+              className="px-6 py-4 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 hover:text-white border border-slate-700 font-mono text-xs sm:text-sm font-medium transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm hover:border-emerald-500/40"
             >
               <span>Ver Caso Chilemat Quillota</span>
-              <span className="text-emerald-400">↓</span>
+              <span className="text-emerald-400 font-bold">↓</span>
             </a>
           </div>
 
-          {/* Badges de Clientes Objetivo (Claridad de 'Para quién es') */}
+          {/* Badges de Clientes Objetivo */}
           <div className="pt-2 flex flex-wrap items-center gap-2 text-[11px] font-mono text-slate-400">
             <span className="text-slate-500">Diseñado para:</span>
             <span className="bg-slate-900/90 px-2.5 py-1 rounded-md border border-slate-800 text-slate-300">
@@ -98,8 +112,7 @@ export default function Hero() {
 
         </div>
 
-        {/* Columna Derecha: Elemento Visual / Consola Operativa en Vivo */}
-        {}
+        {/* Columna Derecha: Mockup Visual de Consola de Planta */}
         <div className="lg:col-span-5 w-full">
           <div className="bg-gradient-to-b from-slate-900 via-slate-900/90 to-slate-950 border border-slate-700/80 rounded-3xl p-5 sm:p-6 shadow-2xl relative overflow-hidden backdrop-blur-xl">
             
@@ -187,7 +200,7 @@ export default function Hero() {
             <div className="mt-5 p-3.5 rounded-xl bg-slate-950 border border-slate-800 text-[11px] font-mono text-slate-400 space-y-1.5">
               <div className="flex justify-between items-center text-slate-300">
                 <span className="flex items-center gap-1.5 text-emerald-400 font-bold">
-                  <FileCheck className="w-3.5 h-3.5" /> GUÍA #84920 SUCURSAL QUILLOTA
+                  <FileCheck className="w-3.5 h-3.5" /> GUÍA #849XX SUCURSAL QUILLOTA
                 </span>
                 <span className="text-[9px] bg-slate-800 px-1.5 py-0.5 rounded text-slate-400">Chilemat</span>
               </div>
@@ -211,7 +224,6 @@ export default function Hero() {
       </div>
 
       {/* Hero KPI Micro-Banner (Inferior) */}
-      {}
       <div className="mt-14 pt-8 border-t border-slate-800/80 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-left">
         <div className="bg-slate-900/40 p-3.5 rounded-xl border border-slate-800">
           <p className="text-[11px] font-mono text-slate-400 flex items-center gap-1.5">
