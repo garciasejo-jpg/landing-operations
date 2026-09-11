@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import {
   Award,
   Terminal,
-  Mail,
   Copy,
   Check,
   HelpCircle,
@@ -47,7 +46,7 @@ const FAQS: FAQItem[] = [
   {
     question: '¿Cuál es el modelo de trabajo y rango de inversión?',
     answer:
-      'Los diagnósticos y blueprints parten desde $1,200 USD. Los módulos cerrados de extracción con IA o PWAs de trazabilidad QR llave en mano se cotizan por hito cerrado (generalmente entre $2,800 y $6,500 USD según la escala del flujo operativo).',
+      'Los diagnósticos y blueprints parten desde $1,200 USD. Los módulos cerrados de extracción con IA o PWAs de trazabilidad QR llave en mano se cotizan por hito cerrado (generalmente entre $2,800 y $6,500 USD según la escala del flujo operativo). Facturación disponible en CLP según tipo de cambio observado más IVA.',
   },
 ];
 
@@ -114,49 +113,46 @@ export default function WhyMeSection() {
                 Operations &amp; AI Automation Architect
               </p>
 
-              {/* Botones de Redes y Contacto (SVGs Nativos) */}
+              {/* Botones de Contacto Verificados (Sin el icono de GitHub) */}
               <div className="flex items-center gap-3 mt-5">
                 <a
                   href="https://www.linkedin.com/in/josé-garcía-lacruz"
                   target="_blank"
                   rel="noreferrer"
-                  className="p-2.5 rounded-xl bg-slate-800/80 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors border border-slate-700/60"
-                  title="Perfil de LinkedIn"
+                  className="px-3.5 py-2 rounded-xl bg-slate-800/90 hover:bg-slate-700 text-slate-200 hover:text-white transition-all border border-slate-700/80 flex items-center gap-2 text-xs font-mono shadow-sm"
+                  title="Perfil de LinkedIn de José Miguel García"
                   aria-label="LinkedIn"
                 >
-                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                  <svg className="w-4 h-4 fill-current text-sky-400" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
                   </svg>
+                  <span>LinkedIn</span>
                 </a>
-                <a
-                  href="https://github.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="p-2.5 rounded-xl bg-slate-800/80 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors border border-slate-700/60"
-                  title="Repositorios de GitHub"
-                  aria-label="GitHub"
-                >
-                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-                    <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-                  </svg>
-                </a>
+
                 <button
                   type="button"
                   onClick={handleCopyEmail}
-                  className="p-2.5 rounded-xl bg-slate-800/80 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors border border-slate-700/60 relative"
+                  className="px-3.5 py-2 rounded-xl bg-slate-800/90 hover:bg-slate-700 text-slate-200 hover:text-white transition-all border border-slate-700/80 flex items-center gap-2 text-xs font-mono shadow-sm cursor-pointer"
                   title="Copiar correo electrónico"
                   aria-label="Copiar correo"
                 >
                   {copiedEmail ? (
-                    <Check className="w-4 h-4 text-emerald-400" />
+                    <>
+                      <Check className="w-4 h-4 text-emerald-400" />
+                      <span className="text-emerald-400 font-bold">¡Copiado!</span>
+                    </>
                   ) : (
-                    <Copy className="w-4 h-4" />
+                    <>
+                      <Copy className="w-4 h-4 text-slate-400" />
+                      <span>Copiar Email</span>
+                    </>
                   )}
                 </button>
               </div>
+
               {copiedEmail && (
                 <span className="text-[11px] font-mono text-emerald-400 mt-2">
-                  ¡Correo copiado al portapapeles!
+                  garciasejo@gmail.com
                 </span>
               )}
             </div>
@@ -176,7 +172,7 @@ export default function WhyMeSection() {
                 Con <strong className="text-white font-semibold">más de 10 años de trayectoria</strong> optimizando procesos operativos, logística interna y gestión de inventarios en el sector industrial, no desarrollo código aislado de la realidad de bodega. Mi formación dual como <strong className="text-emerald-400 font-semibold">Ingeniero Industrial</strong> y graduado de <strong className="text-white font-semibold">Máster en Marketing Digital e IA Generativa</strong> me permite diagnosticar exactamente dónde fuga dinero tu operación y construir herramientas de software de adopción inmediata para operarios en piso de planta.
               </p>
 
-              {/* Badges de Credenciales Concretas (Resuelve la observación del análisis) */}
+              {/* Badges de Credenciales Concretas */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
                 <div className="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800">
                   <div className="flex items-center gap-2 text-emerald-400 text-xs font-mono font-bold mb-1">
@@ -241,7 +237,7 @@ export default function WhyMeSection() {
                 </div>
               </div>
 
-              {/* Garantía de Viabilidad Técnica (Resuelve el punto de Garantías ausentes) */}
+              {/* Garantía de Viabilidad Técnica */}
               <div className="pt-2">
                 <div className="p-4 rounded-2xl bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border border-emerald-500/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
                   <div className="flex items-center gap-2.5">
@@ -274,7 +270,7 @@ export default function WhyMeSection() {
               Preguntas Frecuentes de Operaciones &amp; Seguridad
             </h3>
             <p className="mt-3 text-slate-400 text-sm sm:text-base">
-              Todo lo que necesitas saber sobre confidencialidad, ERPs y adopción en planta.
+              Todo lo que necesitas saber sobre confidencialidad de datos, ERPs y adopción en planta.
             </p>
           </div>
 
